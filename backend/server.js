@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import cookieParser from "cookie-parser";
 import path from "path";
 
@@ -18,6 +19,15 @@ const __dirname = path.resolve();
 
 app.use(express.json()); // will allow us to parse req.body
 app.use(cookieParser());
+
+const corsOptions = {
+	origin: ['https://animekl-web.vercel.app'],
+	methods: ['GET', 'POST', 'PUT', 'DELETE'],
+	credentials: true, // Nếu dùng cookie
+  };
+  
+  app.use(cors(corsOptions));
+
 
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/movie", protectRoute, movieRoutes);
