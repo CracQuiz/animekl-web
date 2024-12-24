@@ -61,7 +61,7 @@ const SearchPage = () => {
 						} hover:bg-red-700`}
 						onClick={() => handleTabClick("person")}
 					>
-						Person
+						VA
 					</button>
 				</div>
 
